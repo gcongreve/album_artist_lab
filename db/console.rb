@@ -1,30 +1,41 @@
-require("pry")
+require("pry-byebug")
 require_relative("../models/artist")
 require_relative("../models/album")
 
 
 
 david_bowie = Artist.new("name"=>"David Bowie")
-david_bowie.save()
+# david_bowie.save() #works
 prince = Artist.new("name"=>"Prince")
-prince.save()
-p david_bowie
-p prince
+# prince.save() #works
+# # p david_bowie #works
+# # p prince #works
 
-album1 = Album.new({"title"=>"The Best of David Bowie", "genre" => "rock", 'artist' => "David Bowie", 'artist_id' => david_bowie.id})
-album1.save()
-album2 = Album.new({"title"=>"The Best of Prince", "genre" => "alt", 'artist' => "Prince", 'artist_id' => prince.id})
-album2.save()
-p album1
-p album2
+bowie_album1 = Album.new({"title"=>"The Best of David Bowie", "genre" => "rock", 'artist' => "David Bowie", 'artist_id' => david_bowie.id})
+# bowie_album1.save() #works
+#
+prince_album1 = Album.new({"title"=>"The Best of Prince", "genre" => "alt", 'artist' => "Prince", 'artist_id' => prince.id})
+# prince_album1.save() #works
+#
+bowie_album2 = Album.new({"title"=>"The Even Better of David Bowie", "genre" => "rock", 'artist' => "David Bowie", 'artist_id' => david_bowie.id})
+# bowie_album2.save() #works
+# # p album1 #works
+# # p album2 #works
 
-# Album.all()
-# Artist.all()
-# Album.find_by_artist(david_bowie.id)
-# p Artist.find_by_album(album2.id)
+
+#p Album.all()  #works
+#p Artist.all() #works
+
+# p Album.find_albums_by_artist("David Bowie") #works
+p Album.find_albums_by_artist_id(david_bowie.id) #works
+
+#p david_bowie.artists_albums
 
 
-# album1 = Album.new({"title"=>"The Best of David Bowie", "genre" => "rock", 'artist' => david_bowie.id})
-# album1.save()
-# album2 = Album.new({"title"=>"best of Prince", "genre" => "alt", 'artist_id' => prince.id})
-# album2.save()
+#p Artist.find_artist_by_album('The Best of Prince') #works
+
+
+
+
+#Artist.delete_all()#works
+#Album.delete_all()#works

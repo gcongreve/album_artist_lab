@@ -38,11 +38,25 @@ class Album
   end
 
 
-  def self.find_by_artist(artist)
+  def self.find_albums_by_artist(artist)
     sql = "SELECT * FROM albums WHERE artist = $1"
     values = [artist]
     albums = SqlRunner.run(sql, values)
     return albums.map { |album| Album.new(album) }
+  end
+
+  def self.find_albums_by_artist_id(artist_id)
+    sql = "SELECT * FROM albums WHERE artist_id = $1"
+    values = [artist_id]
+    albums = SqlRunner.run(sql, values)
+    return albums.map { |album| Album.new(album) }
+  end
+
+
+
+  def self.delete_all()
+    sql = "DELETE FROM albums"
+    SqlRunner.run(sql)
   end
 
 
