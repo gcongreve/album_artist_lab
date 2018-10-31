@@ -11,13 +11,13 @@ prince = Artist.new("name"=>"Prince")
 # # p david_bowie #works
 # # p prince #works
 
-bowie_album1 = Album.new({"title"=>"The Best of David Bowie", "genre" => "rock", 'artist' => "David Bowie", 'artist_id' => david_bowie.id})
+bowie_album1 = Album.new({"title"=>"The Best of David Bowie", "genre" => "rock", 'artist_id' => david_bowie.id})
 # bowie_album1.save() #works
 #
-prince_album1 = Album.new({"title"=>"The Best of Prince", "genre" => "alt", 'artist' => "Prince", 'artist_id' => prince.id})
+prince_album1 = Album.new({"title"=>"The Best of Prince", "genre" => "alt", 'artist_id' => prince.id})
 # prince_album1.save() #works
 #
-bowie_album2 = Album.new({"title"=>"The Even Better of David Bowie", "genre" => "rock", 'artist' => "David Bowie", 'artist_id' => david_bowie.id})
+bowie_album2 = Album.new({"title"=>"The Even Better of David Bowie", "genre" => "rock", 'artist_id' => david_bowie.id})
 # bowie_album2.save() #works
 # # p album1 #works
 # # p album2 #works
