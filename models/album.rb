@@ -50,17 +50,22 @@ class Album
     return albums.map { |album| Album.new(album) }
   end
 
+  def self.find_album_by_id(album_id)
+    sql = "SELECT * FROM albums WHERE id = $1"
+    values = [album_id]
+    albums = SqlRunner.run(sql, values)
+    result = albums.first
+    return result
+  end
+
   def update
     sql = "UPDATE albums SET
     title = $1,
-    artist = $2,
-
-     WHERE id = $2"
-    values = [@name, @id]
+    genre = $2
+     WHERE id = $3"
+    values = [@title, @genre,  @id]
     SqlRunner.run(sql, values)
   end
-
-
 
   def delete()
     sql = "DELETE FROM albums WHERE id = $1"
